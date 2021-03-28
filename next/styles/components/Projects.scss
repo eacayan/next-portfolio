@@ -1,0 +1,144 @@
+$section: '.projects';
+
+#{$section} {
+  &__container {
+    @include container;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include respond(desktop) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 0 30px;
+
+    @include respond(tablet) {
+      margin: 0 80px 40px;
+    }
+
+    @include respond(desktop) {
+      margin: 0;
+    }
+  }
+
+  &__name {
+    color: $c-bright-pink;
+    margin: 0 0 10px 35px;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    z-index: 1;
+  }
+
+  &__description {
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    margin: 0;
+    background-color: $c-dark-purple;
+    color: $c-gold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    & > * {
+      margin: 70px 28px 0;
+      line-height: 1.4;
+    }
+
+    &.--show {
+      opacity: 1;
+    }
+  }
+
+  &__image-wrapper {
+    display: flex;
+    font-size: 12px;
+
+    picture {
+      max-width: 100%;
+      position: relative;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: 40%;
+      filter: brightness(0.65);
+    }
+
+    span {
+      position: relative;
+      color: $c-bright-blue;
+      padding-right: 10px;
+      height: fit-content;
+      writing-mode: vertical-lr;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        width: 1px;
+        background-color: $c-gold;
+        opacity: 0.6;
+        height: 500%;
+        position: absolute;
+        top: 50px;
+        left: 30%;
+
+        @include respond(tablet) {
+          height: 275px;
+        }
+      }
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: $c-bright-blue;
+      padding-right: 10px;
+      align-self: flex-end;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+
+      &::before {
+        content: '';
+        width: 1px;
+        background-color: $c-gold;
+        opacity: 0.6;
+        height: 700%;
+        position: absolute;
+        top: 50px;
+        left: 27%;
+
+        @include respond(tablet) {
+          height: 275px;
+        }
+      }
+
+      &::after {
+        content: '⌵';
+        display: inline-block;
+        position: absolute;
+        bottom: -12px;
+        right: 8px;
+        font-size: 15px;
+        text-align: center;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}

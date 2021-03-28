@@ -1,0 +1,326 @@
+$section: '.landing';
+
+#{$section} {
+  &__container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 100px 0 0;
+    height: 100vh;
+
+    @include respond(tablet) {
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 35px;
+    margin: 0;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    @include respond(tablet) {
+      font-size: 45px;
+    }
+
+    @include respond(desktop) {
+      font-size: 50px;
+    }
+  }
+
+  &__description {
+    font-family: 'Sulphur Point', sans-serif;
+    color: $c-dark-pink;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 24px;
+    width: 100%;
+
+    @include respond(tablet) {
+      font-size: 18px;
+      width: 75%;
+    }
+
+    @include respond(tablet) {
+      width: 68%;
+    }
+
+    strong {
+      background-color: $c-gold;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    height: 180px;
+    margin-top: -130px;
+
+    @include respond(tablet) {
+      margin: 0 0 0 -60px;
+      height: 250px;
+      margin-top: 0;
+    }
+
+    @include respond(desktop) {
+      margin: 0 50px 0 -150px;
+      height: 350px;
+    }
+
+    &.hovered {
+      &::after {
+        transform: translate(-99%, -1%);
+
+        @include respond(desktop) {
+          transform: translate(-351.5px, -2px);
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      left: 27%;
+      width: 170px;
+      height: 25px;
+      background: transparent;
+
+      @include respond(tablet) {
+        left: 17%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 100%;
+      width: 100%;
+      height: 100%;
+      border: $c-gold 2px solid;
+      background: inherit;
+      transform: translate(-108%, -10%);
+      transition: transform 0.3s ease-in-out;
+      z-index: -1;
+
+      @include respond(tablet) {
+        transform: translate(-90%, 5%);
+      }
+    }
+
+    .speech-bubble {
+      position: absolute;
+      background: $c-gold;
+      width: 100px;
+      border-radius: 0.4em;
+      padding: 0 10px;
+      text-decoration: none;
+      text-align: center;
+      color: $c-dark-pink;
+      transform: translate(25%, -314%);
+      transition: transform ease-in-out 0.3s;
+      z-index: 1;
+      cursor: pointer;
+
+      @include respond(tablet) {
+        width: 145px;
+        padding: 5px 20px;
+        transform: translate(17%, -298%);
+      }
+
+      @include respond(desktop) {
+        transform: translate(45%, -314%);
+      }
+
+      &::before {
+        // mobile only
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        top: -19px;
+        border-bottom-color: #ffcb3e;
+        border-top: 0;
+        margin-left: -20px;
+        margin-bottom: -20px;
+
+        @include respond(tablet) {
+          display: none;
+        }
+      }
+
+      &::after {
+        @include respond(tablet) {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border: 20px solid transparent;
+          bottom: 0;
+          border-top-color: $c-gold;
+          border-bottom: 0;
+          margin-left: -20px;
+          margin-bottom: -20px;
+        }
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+
+        svg {
+          width: 15px;
+          height: 15px;
+          fill: none;
+          stroke: $c-dark-blue;
+          transition: fill 0.3s ease-in;
+
+          @include respond(tablet) {
+            width: 24px;
+            height: 24px;
+          }
+
+          path {
+            fill: transparent;
+            stroke: $c-dark-blue;
+            transition: fill 0.3s ease-in;
+          }
+
+          &:hover,
+          &:hover path {
+            fill: $c-dark-pink;
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    z-index: 2;
+
+    @include respond(tablet) {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include respond(desktop) {
+      width: 350px;
+      height: 350px;
+    }
+
+    &.hovered {
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+      filter: grayscale(0%);
+
+      & + .speech-bubble {
+        transform: translate(25%, 55%);
+
+        @include respond(tablet) {
+          transform: translate(17%, -500%);
+        }
+
+        @include respond(desktop) {
+          transform: translate(45%, -645%);
+        }
+      }
+    }
+  }
+
+  &__socials {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    z-index: 3;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      svg {
+        fill: $c-gold;
+        width: 24px;
+
+        path {
+          fill: $c-gold;
+        }
+      }
+
+      li {
+        opacity: 0.7;
+        cursor: pointer;
+        transition: opacity 0.5s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &:nth-child(2) {
+          position: relative;
+
+          &::before,
+          &::after {
+            content: '.';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            left: 40%;
+          }
+
+          &::before {
+            top: -25px;
+          }
+
+          &::after {
+            bottom: 2px;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

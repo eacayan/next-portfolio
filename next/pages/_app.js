@@ -1,10 +1,10 @@
 import React from 'react';
-import GlobalStyles from 'components/GlobalStyles';
+
+import '../styles/main.scss';
 
 function App({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyles />
       <Component {...pageProps} />
     </>
   );
