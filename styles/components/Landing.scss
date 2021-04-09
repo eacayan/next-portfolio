@@ -128,6 +128,7 @@ $section: '.landing';
       color: $c-dark-pink;
       transform: translate(25%, -314%);
       transition: transform ease-in-out 0.3s;
+      opacity: 0;
       z-index: 1;
       cursor: pointer;
 
@@ -241,6 +242,7 @@ $section: '.landing';
 
       & + .speech-bubble {
         transform: translate(25%, 55%);
+        opacity: 1;
 
         @include respond(tablet) {
           transform: translate(17%, -500%);

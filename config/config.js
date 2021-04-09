@@ -1,1 +1,1 @@
-export const URL = 'http://localhost:1337';
+export const URL = 'https://hidden-falls-08576.herokuapp.com';
