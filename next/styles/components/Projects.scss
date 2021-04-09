@@ -15,6 +15,16 @@ $section: '.projects';
     }
   }
 
+  &__heading {
+    font-size: 35px;
+    text-align: center;
+    color: $c-gold;
+
+    @include respond(tablet) {
+      font-size: 40px;
+    }
+  }
+
   &__item {
     display: flex;
     justify-content: center;

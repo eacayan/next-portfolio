@@ -5,35 +5,38 @@ import { motion } from 'framer-motion';
 import { URL } from '../config/config';
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
-const pageVariants = {
-  initial: { scale: 0.9, opacity: 0 },
-  enter: { scale: 1, opacity: 1, transition },
-  exit: {
-    scale: 0.5,
-    opacity: 0,
-    transition: { duration: 1.5, ...transition }
-  }
-};
 const backVariants = {
   exit: { x: 100, opacity: 0, transition },
-  enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } }
+  enter: { x: 0, opacity: 1, transition: { delay: 0.75, ...transition } }
+};
+const contentVariants = {
+  exit: { y: "50%", opacity: 0, transition },
+  enter: {
+    y: "0%",
+    opacity: 1,
+    transition
+  }
 };
 
 const Uses = ({ data }) => {
   return (
-    <motion.section 
-      initial="exit"
-      animate="enter"
-      exit="exit"
-      variants={pageVariants}
-    >
+    <motion.section>
       <div className="uses__container">
         <Link href='/'>
-          <motion.a className="back" variants={backVariants}>← Back to Home</motion.a>
+          <motion.a className="back" 
+          initial="exit" 
+          animate="enter" 
+          exit="exit" variants={backVariants}>← Back to Home</motion.a>
         </Link>
-        <div className="uses__wysiwyg">
+        <motion.div 
+          className="uses__wysiwyg"
+          initial="exit" 
+          animate="enter" 
+          exit="exit"
+          variants={contentVariants}
+        >
           <ReactMarkdown source={data.content} />
-        </div>
+        </motion.div>
         
       </div>
     </motion.section>

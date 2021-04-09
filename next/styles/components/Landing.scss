@@ -313,13 +313,31 @@ $section: '.landing';
       }
     }
   }
-}
 
-@keyframes slideInDown {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  &__links {
+    color: $c-grey !important;
+    text-decoration: none;
+    font-size: 16px;
+    width: max-content;
+
+    @include respond(tablet) {
+      font-size: 18px;
+    }
+
+    @include respond(desktop) {
+      font-size: 22px;
+    }
+
+    span {
+      transition: text-shadow 0.3s ease;
+    }
+
+    &:hover {
+      span {
+        color: $c-white;
+        text-shadow: 0 0 10px $c-dark-red, 0 0 20px $c-dark-red,
+          0 0 40px $c-dark-red, 0 0 80px $c-gold, 0 0 110px $c-gold;
+      }
+    }
   }
 }

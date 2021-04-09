@@ -6,7 +6,7 @@ import '../styles/main.scss';
 
 function App({ Component, pageProps }) {
   return (
-    <AnimatePresence exitBeforeEnter initial={false}>
+    <AnimatePresence exitBeforeEnter>
       <Component {...pageProps} />
     </AnimatePresence>
   );

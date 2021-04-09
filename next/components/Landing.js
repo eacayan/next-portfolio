@@ -6,13 +6,30 @@ import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 import { URL } from '../config/config';
 
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+const landingVariants = {
+  initial: { scale: 0.9, opacity: 0 },
+  enter: { scale: 1, opacity: 1, transition },
+  exit: {
+    scale: 0.5,
+    opacity: 0,
+    transition: { duration: 1.5, ...transition }
+  }
+};
+
 const Landing = ({ data }) => {
   const [hoverEffect, setHoverEffect] = useState(false);
   const { title, title_2, description_long, profile_image, social_links } = data;
 
   return (
-    <section
-      className='landing__container'>
+    <motion.section
+      className='landing__container'
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      transition={transition}
+      variants={landingVariants}
+    >
       <div className="landing__text-wrapper">
         <h2 className='landing__description'>Hello, I am...</h2>
         <h1 className='landing__title'>{title}</h1>
@@ -21,7 +38,9 @@ const Landing = ({ data }) => {
           <ReactMarkdown source={description_long} />
         </h2>
         <Link href='/uses'>
-          <motion.a whileHover={{ scale: 1.1 }} >/uses</motion.a>
+          <a className="landing__links">
+            <span>/uses</span>
+          </a>
         </Link>
       </div>
 
@@ -56,7 +75,7 @@ const Landing = ({ data }) => {
           </ul>
         </div>
       </picture>
-    </section>
+    </motion.section>
   );
 };
 
