@@ -23,7 +23,7 @@ const Landing = ({ data }) => {
 
   return (
     <motion.section
-      className='landing__container'
+      className="landing__container"
       initial="initial"
       animate="enter"
       exit="exit"
@@ -31,23 +31,23 @@ const Landing = ({ data }) => {
       variants={landingVariants}
     >
       <div className="landing__text-wrapper">
-        <h2 className='landing__description'>Hello, I am...</h2>
-        <h1 className='landing__title'>{title}</h1>
-        <h1 className='landing__title'>{title_2}</h1>
-        <h2 className='landing__description'>
+        <h2 className="landing__description">Hello, I am...</h2>
+        <h1 className="landing__title">{title}</h1>
+        <h1 className="landing__title">{title_2}</h1>
+        <h2 className="landing__description">
           <ReactMarkdown source={description_long} />
         </h2>
-        <Link href='/uses'>
+        <Link href="/uses">
           <a className="landing__links">
             <span>/uses</span>
           </a>
         </Link>
       </div>
 
-      <picture className={`${hoverEffect ? 'landing__image-wrapper hovered' : 'landing__image-wrapper'}`}>
+      <picture className={`${hoverEffect ? "landing__image-wrapper hovered" : "landing__image-wrapper"}`}>
         <source media="(min-width: 1024px)" srcSet={`${URL}${profile_image?.formats?.medium?.url}`} />
         <img 
-          className={`${hoverEffect ? 'landing__image hovered' : 'landing__image'}`} 
+          className={`${hoverEffect ? "landing__image hovered" : "landing__image"}`} 
           onMouseEnter={() => setHoverEffect(true)} 
           onMouseLeave={() => setHoverEffect(false)} 
           src={`${URL}${profile_image?.formats?.small?.url}`} alt="personal photo"/>
@@ -57,18 +57,18 @@ const Landing = ({ data }) => {
           onMouseEnter={() => setHoverEffect(true)} 
           onMouseLeave={() => setHoverEffect(false)}>
           <ul>
-            <li className='email'>
-              <a href={`mailto:${social_links.email}`} target='_blank'>
+            <li className="email">
+              <a href={`mailto:${social_links.email}`} target="_blank">
                 <FiMail />
               </a>
             </li>
-            <li className='github'>
-              <a href={social_links.github} target='_blank'>
+            <li className="github">
+              <a href={social_links.github} target="_blank">
                 <FiGithub />
               </a>
             </li>
-            <li className='linkedin'>
-              <a href={social_links.linkedin} target='_blank'>
+            <li className="linkedin">
+              <a href={social_links.linkedin} target="_blank">
                 <FiLinkedin />
               </a>
             </li>

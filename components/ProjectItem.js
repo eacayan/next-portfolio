@@ -11,12 +11,12 @@ const ProjectItem = ({ projectData }) => {
   }
 
   return (
-    <div className='projects__item'>
-      <p className='projects__name'>{name}</p>
+    <div className="projects__item">
+      <p className="projects__name">{name}</p>
 
-      <div className='projects__image-wrapper'>
-        <span className='projects__btn-info' onClick={showInfo}>
-          {isInfoShown ? 'Close x' : 'Info +'}
+      <div className="projects__image-wrapper">
+        <span className="projects__btn-info" onClick={showInfo}>
+          {isInfoShown ? "Close x" : "Info +"}
         </span>
         <picture>
           <source media="(min-width: 768px)" srcSet={`${URL}${project_image?.formats?.medium?.url}`} />
@@ -24,14 +24,14 @@ const ProjectItem = ({ projectData }) => {
             src={`${URL}${project_image?.formats?.small?.url}`}
             alt={`${project_image?.name} photo`}/>
 
-          <div className={`projects__description ${isInfoShown ? '--show' : ''}`}>
+          <div className={`projects__description ${isInfoShown ? "--show" : ""}`}>
             <ReactMarkdown source={description} />
           </div>
         </picture>
         <a
           href={project_link}
-          className='projects__link'
-          target='_blank'
+          className="projects__link"
+          target="_blank"
         >
           Site
         </a>
