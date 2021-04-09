@@ -4,8 +4,6 @@ import ProjectItem from './ProjectItem';
 const Projects = ({ data }) => {
   const { projects } = data;
 
-  console.log(projects);
-
   return (
     <section className='projects__container'>
       {projects.length > 0 &&

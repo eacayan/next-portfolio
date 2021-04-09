@@ -11,7 +11,7 @@ $section: '.projects';
     @include respond(desktop) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
+      grid-gap: 50px 20px;
     }
   }
 
@@ -34,11 +34,15 @@ $section: '.projects';
   &__name {
     color: $c-bright-pink;
     margin: 0 0 10px 35px;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: bold;
     letter-spacing: 1px;
     align-self: flex-start;
     z-index: 1;
+
+    @include respond(tablet) {
+      font-size: 35px;
+    }
   }
 
   &__description {
@@ -94,12 +98,16 @@ $section: '.projects';
         width: 1px;
         background-color: $c-gold;
         opacity: 0.6;
-        height: 500%;
+        height: 110px;
         position: absolute;
         top: 50px;
         left: 30%;
 
         @include respond(tablet) {
+          height: 215px;
+        }
+
+        @include respond(desktop) {
           height: 275px;
         }
       }
@@ -119,12 +127,16 @@ $section: '.projects';
         width: 1px;
         background-color: $c-gold;
         opacity: 0.6;
-        height: 700%;
+        height: 115px;
         position: absolute;
         top: 50px;
         left: 27%;
 
         @include respond(tablet) {
+          height: 215px;
+        }
+
+        @include respond(desktop) {
           height: 275px;
         }
       }

@@ -5,21 +5,21 @@ $section: '.landing';
     @include container;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    padding: 100px 0 0;
+    padding: 0;
     height: 100vh;
+    margin-bottom: 80px;
 
     @include respond(tablet) {
       flex-direction: row;
-      padding: 0;
+      margin-bottom: 0;
     }
   }
 
   &__text-wrapper {
     display: flex;
     flex-direction: column;
-    width: 85%;
   }
 
   &__title {
@@ -48,32 +48,31 @@ $section: '.landing';
     width: 100%;
 
     @include respond(tablet) {
-      font-size: 18px;
-      width: 75%;
+      font-size: 17px;
+      line-height: 32px;
     }
 
-    @include respond(tablet) {
-      width: 68%;
+    @include respond(desktop) {
+      font-size: 22px;
     }
 
     strong {
       background-color: $c-gold;
+      padding: 0 1px;
     }
   }
 
   &__image-wrapper {
     position: relative;
     height: 180px;
-    margin-top: -130px;
 
     @include respond(tablet) {
-      margin: 0 0 0 -60px;
+      margin-left: 60px;
       height: 250px;
-      margin-top: 0;
     }
 
     @include respond(desktop) {
-      margin: 0 50px 0 -150px;
+      margin-left: 100px;
       height: 350px;
     }
 
