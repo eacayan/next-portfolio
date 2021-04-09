@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "name": "homepage"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "dark_mode": {
+      "type": "boolean"
+    },
+    "social_links": {
+      "type": "json"
+    },
+    "projects": {
+      "collection": "projects"
+    },
+    "description": {
+      "type": "text"
+    },
+    "title_2": {
+      "type": "string"
+    },
+    "profile_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description_long": {
+      "type": "richtext"
+    }
+  }
+}

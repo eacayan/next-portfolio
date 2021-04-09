@@ -1,0 +1,16 @@
+{
+  "kind": "singleType",
+  "collectionName": "uses",
+  "info": {
+    "name": "Uses"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
