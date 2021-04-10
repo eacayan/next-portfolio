@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { URL } from '../config/config';
 
 const ProjectItem = ({ projectData }) => {
   const { name, description, project_image, project_link } = projectData;
@@ -19,9 +18,9 @@ const ProjectItem = ({ projectData }) => {
           {isInfoShown ? "Close x" : "Info +"}
         </span>
         <picture>
-          <source media="(min-width: 768px)" srcSet={`${URL}${project_image?.formats?.medium?.url}`} />
+          <source media="(min-width: 768px)" srcSet={`${project_image?.formats?.medium?.url}`} />
           <img  
-            src={`${URL}${project_image?.formats?.small?.url}`}
+            src={`${project_image?.formats?.small?.url}`}
             alt={`${project_image?.name} photo`}/>
 
           <div className={`projects__description ${isInfoShown ? "--show" : ""}`}>

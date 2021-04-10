@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 
-import { URL } from '../config/config';
-
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 const landingVariants = {
   initial: { scale: 0.9, opacity: 0 },
@@ -45,12 +43,12 @@ const Landing = ({ data }) => {
       </div>
 
       <picture className={`${hoverEffect ? "landing__image-wrapper hovered" : "landing__image-wrapper"}`}>
-        <source media="(min-width: 1024px)" srcSet={`${URL}${profile_image?.formats?.medium?.url}`} />
+        <source media="(min-width: 1024px)" srcSet={`${profile_image?.formats?.medium?.url}`} />
         <img 
           className={`${hoverEffect ? "landing__image hovered" : "landing__image"}`} 
           onMouseEnter={() => setHoverEffect(true)} 
           onMouseLeave={() => setHoverEffect(false)} 
-          src={`${URL}${profile_image?.formats?.small?.url}`} alt="personal photo"/>
+          src={`${profile_image?.formats?.small?.url}`} alt="personal photo"/>
 
         <div 
           className="speech-bubble" 
