@@ -28,7 +28,7 @@ const Projects = ({ data }) => {
 
   return (
     <section className="projects">
-      <h2 className="projects__heading">Selected Works</h2>
+      <h2 className="projects__heading">Selected Projects</h2>
       <div className="projects__wrapper" ref={ref}>
         <motion.div 
           className="projects__container"
